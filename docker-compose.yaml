@@ -1,0 +1,17 @@
+services:
+  todo_postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=todo
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=my_database
+    ports:
+      - '5432:5432'
+  test_postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    ports:
+      - '5433:5432'
