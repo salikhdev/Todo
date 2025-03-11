@@ -15,7 +15,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 class TodoApplicationTests {
 
     @Container
-    public static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:15.1")
+    public static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:13.2")
             .withDatabaseName("postgres")
             .withUsername("user")
             .withPassword("password");
