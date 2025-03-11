@@ -11,12 +11,11 @@ on:
 jobs:
   test:
     runs-on: self-hosted
-
     steps:
       - name: Repositoryni yuklash
-      - uses: actions/checkout@v4
-      - with:
-      - fetch-depth: 0
+        uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
 
       - name: Checkout Code
         uses: actions/checkout@v4
