@@ -47,3 +47,32 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
+
+  deploy:
+    needs: test
+    runs-on: self-hosted
+    steps:
+      - name: Build natijasini yuklash
+        uses: actions/download-artifact@v4
+        with:
+          name: todo-jar
+          path: ~/actions-runner/_work/Todo/Todo/build/libs/
+
+      - name: Resource fayllarni yuklash
+        uses: actions/download-artifact@v4
+        with:
+          name: todo-resources
+          path: ~/actions-runner/_work/Todo/Todo/src/main/resources/
+
+      - name: Deploy qilish
+        run: |
+          pwd
+          ls -hal
+
+          rm -f Todo-0.0.1-SNAPSHOT.jar || true
+          mv ~/actions-runner/_work/Todo/Todo/build/libs/Todo-0.0.1-SNAPSHOT.jar .
+          docker-compose down || true
+          docker-compose up -d --build
+          java -jar Todo-0.0.1-SNAPSHOT.jar spring.profiles.active=product
+#          echo "${{ secrets.SERVER_PASSWORD }}" | sudo -S systemctl restart todo
