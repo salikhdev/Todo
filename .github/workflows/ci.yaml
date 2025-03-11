@@ -32,11 +32,29 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Run Tests
-        run: ./gradlew test --no-daemon
+#      - name: Run Tests
+#        run: ./gradlew test --no-daemon
 
       - name: Build my Project
         run: ./gradlew build --no-daemon
+
+      - name: Resource fayllarni saqlash
+        uses: actions/upload-artifact@v4
+        with:
+          name: todo-resources
+          path: src/main/resources/
+
+      - name: Build natijasini saqlash
+        uses: actions/upload-artifact@v4
+        with:
+          name: todo-jar
+          path: build/libs/*.jar
+
+      - name: Docker composeni clone qlsh
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-compose
+          path: docker-compose.yaml
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v4
