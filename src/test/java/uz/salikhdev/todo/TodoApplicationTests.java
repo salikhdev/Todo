@@ -2,11 +2,20 @@ package uz.salikhdev.todo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
+//@Testcontainers
 @SpringBootTest
+@ActiveProfiles("test")
 class TodoApplicationTests {
 
-  /*  @Container
+/*
+    @Container
     public static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:13.2")
             .withDatabaseName("postgres")
             .withUsername("user")
@@ -17,8 +26,9 @@ class TodoApplicationTests {
         registry.add("spring.datasource.url", postgres::getJdbcUrl);
         registry.add("spring.datasource.username", postgres::getUsername);
         registry.add("spring.datasource.password", postgres::getPassword);
-    }*/
+    }
 
+*/
 
     @Test
     public void contextLoads() {
