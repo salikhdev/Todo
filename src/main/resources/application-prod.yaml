@@ -7,7 +7,7 @@ spring:
       path: /api/v1/
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/my_database
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: 1234
 
@@ -18,7 +18,7 @@ spring:
       ddl-auto: update
 
   liquibase:
-    enabled: true
+    enabled: false
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
 server:
