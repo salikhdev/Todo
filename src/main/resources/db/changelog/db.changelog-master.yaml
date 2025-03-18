@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/changeset/init_001_v.sql
   - include:
       file: db/changelog/changeset/premium_add_002_v.sql
+  - include:
+      file: db/changelog/changeset/user_limit_alter_003.sql

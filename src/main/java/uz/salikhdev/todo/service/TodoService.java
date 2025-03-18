@@ -24,8 +24,9 @@ public class TodoService {
     private final UserService userService;
     private final TodoMapper todoMapper;
 
-    private boolean canCreateTodo(Long userId) {
-        return todoRepository.canCreateTodo(userId);
+    private boolean canCreateTodo(User user) {
+        List<Todo> all = todoRepository.findAllByUserId(user.getId());
+        return all.size() < user.getTodoLimit();
     }
 
     private Todo findTodoById(Long id) {
@@ -42,7 +43,7 @@ public class TodoService {
     public void createTodo(CreateTodoDto dto) {
         User user = userService.findByToken();
 
-        if (!canCreateTodo(user.getId())) {
+        if (!canCreateTodo(user)) {
             throw new LimitCountIsNotEnough("You can't create more than 10 todos");
         }
 
@@ -66,7 +67,10 @@ public class TodoService {
     public List<TodoDto> getAllTodos() {
         User user = userService.findByToken();
         List<Todo> allTodos = todoRepository.findAllByUserId(user.getId());
-        return todoMapper.toListDto(allTodos);
+
+        return allTodos.stream()
+                .map(todoMapper::toDto)
+                .toList();
     }
 
 }

@@ -16,6 +16,6 @@ public interface TodoMapper {
 
     TodoDto toDto(Todo entity);
 
-    List<TodoDto> toListDto(List<Todo> entities);
+   // List<TodoDto> toListDto(List<Todo> entities);
 
 }

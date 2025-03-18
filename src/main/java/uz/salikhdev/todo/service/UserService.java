@@ -33,6 +33,7 @@ public class UserService {
 
         User user = userMapper.toRegisterEntity(dto);
         user.setPassword(passwordEncoder.encode(dto.password()));
+        user.setTodoLimit(10L);
         userRepository.save(user);
     }
 

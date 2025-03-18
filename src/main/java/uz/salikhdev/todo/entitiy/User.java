@@ -53,7 +53,7 @@ public class User implements UserDetails {
     private List<Todo> todos;
 
     @Column(name = "todo_limit")
-    private Long todoLimit = 10L;
+    private Long todoLimit;
 
     @OneToOne(mappedBy = "user")
     private Premium premium;

@@ -11,11 +11,6 @@ import java.util.List;
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
-    @Query(value = "SELECT CASE WHEN COUNT(t.id) < u.todo_limit THEN TRUE ELSE FALSE END " +
-            "FROM my_user u LEFT JOIN todo t ON u.id = t.user_id " +
-            "WHERE u.id = :userId", nativeQuery = true)
-    boolean canCreateTodo(@Param("userId") Long userId);
-
     List<Todo> findAllByUserId(Long userId);
 
 }
