@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import uz.salikhdev.todo.dto.LoginDto;
 import uz.salikhdev.todo.dto.RegisterDto;
 import uz.salikhdev.todo.dto.TokenDto;
 import uz.salikhdev.todo.entitiy.User;
@@ -34,7 +35,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public TokenDto login(RegisterDto dto) {
+    public TokenDto login(LoginDto dto) {
 
         User user = userRepository.findByEmail(dto.email())
                 .orElseThrow(() -> new EntityNotFound("User not found"));

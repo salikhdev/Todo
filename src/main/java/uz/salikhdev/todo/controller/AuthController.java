@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import uz.salikhdev.todo.dto.LoginDto;
 import uz.salikhdev.todo.dto.MessageDto;
 import uz.salikhdev.todo.dto.RegisterDto;
 import uz.salikhdev.todo.dto.TokenDto;
@@ -33,7 +34,7 @@ public class AuthController {
     @Operation(summary = "Login qilish")
     @ApiResponse(responseCode = "200", description = "Mahsulot topildi")
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody RegisterDto dto) {
+    public ResponseEntity<?> login(@RequestBody LoginDto dto) {
         TokenDto token = userService.login(dto);
         return ResponseEntity.ok(token);
     }
