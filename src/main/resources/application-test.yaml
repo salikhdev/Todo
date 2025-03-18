@@ -2,13 +2,13 @@ spring:
   application:
     name: Todo-App
 
-#  mvc:
-#    servlet:
-#      path: /api/v1/
+  mvc:
+    servlet:
+      path: /api/v1/
 
   datasource:
     url: jdbc:postgresql://localhost:5433/postgres
-    username: user
+    username: postgres
     password: password
     driver-class-name: org.postgresql.Driver
 
@@ -28,5 +28,5 @@ server:
 
 security:
   jwt:
-    secret-key: secret
+    secret-key: HUIOPHwe234wfojsadPOISJCPHuih2widauishndjkahdfs
     expiration-time: 604800000

@@ -26,5 +26,5 @@ server:
 
 security:
   jwt:
-    secret-key: secret
+    secret-key: HUIOPHwe234wfojsadPOISJCPHuih2widauishndjkahdfs
     expiration-time: 259200000
