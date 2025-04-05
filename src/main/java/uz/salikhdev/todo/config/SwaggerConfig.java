@@ -40,7 +40,7 @@ public class SwaggerConfig {
 
     private List<Server> createServers() {
         return List.of(
-                new Server().url("http://localhost:8080").description("Local server"),
+                new Server().url("http://localhost:8080/api/v1/").description("Local server"),
                 new Server().url("https://api.example.com").description("Production server"));
     }
 

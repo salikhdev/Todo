@@ -15,7 +15,7 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler({EntityAlreadyExists.class, LimitCountIsNotEnough.class})
     public ResponseEntity<?> handleException(Exception e) {
-        return new ResponseEntity<>(new MessageDto(e.getMessage(), HttpStatus.CONTINUE.value(), false), HttpStatus.CONFLICT);
+        return new ResponseEntity<>(new MessageDto(e.getMessage(), HttpStatus.CONFLICT.value(), false), HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(EntityNotFound.class)

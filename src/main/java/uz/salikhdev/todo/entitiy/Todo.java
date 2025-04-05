@@ -34,7 +34,7 @@ public class Todo {
     private String description;
 
     @Column(name = "is_completed")
-    private boolean isCompleted;
+    private Boolean isCompleted;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")

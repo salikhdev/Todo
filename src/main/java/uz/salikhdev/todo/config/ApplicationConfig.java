@@ -14,7 +14,7 @@ import uz.salikhdev.todo.repository.UserRepository;
 
 @Configuration
 @RequiredArgsConstructor
-public class ApplicationConfiguration {
+public class ApplicationConfig {
 
     private final UserRepository userRepository;
 

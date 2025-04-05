@@ -55,7 +55,7 @@ public class TodoService {
 
     public void updateTodoStatus(Long todoId, TodoStatusDto dto) {
         Todo todo = findTodoById(todoId);
-        todo.setCompleted(dto.status());
+        todo.setIsCompleted(dto.status());
         todoRepository.save(todo);
     }
 
